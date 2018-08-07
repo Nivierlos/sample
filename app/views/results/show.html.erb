@@ -1,0 +1,22 @@
+<h2><%= @page_title%> <small><%= @result.student.reg_number %></small></h2>
+<table class="table table-striped">
+	<tr>
+		<th>Registration Number</th>
+		<th>Module Code</th>
+		<th>Marks</th>
+		<th>Category</th>
+		<th>Department</th>
+		<th>Level</th>
+		<th>Action</th>
+	</tr>
+	<tr>
+		<td><%= @result.student.reg_number %></td>
+		<td><%= @result.course.module_code %></td>
+		<td><%= @result.marks_value %></td>
+		<td><%= @result.category %></td>
+		<td><%= @result.department.name %></td>
+		<td><%= @result.level.level %></td>
+		<td><%= link_to 'Edit', edit_result_path(@result.id),class:'btn btn-primary'%> | <%= link_to 'Delete', results_path, method: :delete, data: {confirm: 'Are you sure?'}, class:'btn btn-danger'%></td>
+	</tr>
+	<%= link_to 'Print(PDF)', result_path(@result, format: 'pdf') %>
+</table>

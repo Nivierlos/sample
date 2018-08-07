@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  student_id: 1
+  course_id: 1
+  marks_value: 1
+  department_id: 1
+  level_id: 1
+  category: MyString
+
+two:
+  student_id: 1
+  course_id: 1
+  marks_value: 1
+  department_id: 1
+  level_id: 1
+  category: MyString

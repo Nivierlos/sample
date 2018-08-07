@@ -1,0 +1,41 @@
+<h2><%= @page_title%></h2>
+<table class="table table-striped">
+	<tr>
+		<th>Registration Number</th>
+		<th>Module Code</th>
+		<th>Category</th>
+		<th>Department</th>
+		<th>Level</th>
+		<th>Action</th>
+	</tr>
+	<% @results.each do |result|%>
+	<tr>
+		<td><%= result.student.reg_number %></td>
+		<td><%= result.course.module_code %></td>
+		<td><%= result.category %></td>
+		<td><%= result.department.name %></td>
+		<td><%= result.level.level %></td>
+		<td><%= link_to 'More details', result_path(result), class:'btn btn-info'%></td>
+	</tr>
+	<% end %>
+</table>
+<table class="table table-striped">
+	
+	<tr>
+		<th>Registration Number</th>
+		<% @results.each do |result|%>
+	    <th><%= result.course.module_code %></th>
+	    <% end %>
+	</tr>
+	<% @results.each do |result|%>
+	<tr>
+		<td><%= result.student.reg_number%></td>
+		<% @results.each_slice(3) do |result|%>
+		<% @results.each do |result|%>
+		<td><%= result.marks_value%></td>
+		<% end %>
+		<% end %>
+	</tr>
+	<% end %>	
+
+</table>

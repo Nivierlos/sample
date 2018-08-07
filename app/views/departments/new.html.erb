@@ -1,0 +1,16 @@
+<h2><%= @page_title%></h2>
+<%= form_for @department do |f| %>
+
+<% if @department.errors.any? %>
+  <% @department.errors.full_messages.each do |msg| %>
+   <!-- show errors -->
+     <div class="alert alert-danger"><%= msg %></div>
+     <% end %>
+  <% end %>
+	<div class="form-group">
+		<%= f.label :name%><br/>
+		<%=f.text_field :name, class:'form_control' %>
+	</div>
+	<%= f.submit 'Submit',class:'btn btn-success' %>
+		<%= link_to 'Cancel', departments_path, class:'btn btn-danger'%>
+<% end %>

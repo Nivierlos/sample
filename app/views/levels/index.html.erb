@@ -1,0 +1,15 @@
+<h2><%= @page_title%></h2>
+<table class="table table-striped">
+	<tr>
+		<th>Level</th>
+		<th>Department</th>
+		<th>Action</th>
+	</tr>
+	<% @levels.each do |level|%>
+	<tr>
+		<td><%= level.level %></td>
+		<td><%= level.department.name %></td>
+		<td> <%= link_to 'Edit', edit_level_path(level.id), class:'btn btn-primary' %> <%= link_to 'Delete', level_path(level), method: :delete, data: {confirm: 'Are you sure?'}, class:'btn btn-danger' %> </td>
+	</tr>
+	<% end %>
+</table>

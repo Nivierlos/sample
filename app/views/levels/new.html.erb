@@ -1,0 +1,19 @@
+<h2><%= @page_title%></h2>
+<%= form_for @level do |f| %>
+
+<% if @level.errors.any? %>
+	<% @level.errors.full_messages.each do |msg| %>
+		<div class="alert allert-dander"><%= msg %>
+		</div>
+	<% end %>
+<% end %>
+<div class="form-group">
+	<%= f.label :level %>
+<%= f.text_field :level, class:'form-control' %>
+</div>
+<div class="form-group">
+	<%= f.label :department %>
+	<%= f.select :department_id, Department.all.collect {|x|[x.name, x.id]}, {:include_blank => 'select one'}, class:'form-control'%>
+</div>
+<%= f.submit 'Submit', class:'btn btn-success' %> <%= link_to 'Cancel', levels_path, class:'btn btn-danger' %>
+<% end %>

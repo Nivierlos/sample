@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  reg_number: MyString
+  first_name: MyString
+  last_name: MyString
+  department_id: 1
+  level_id: 1
+  imagePath: MyString
+  father_name: MyString
+  mother_name: MyString
+  telephone: MyString
+  email: MyString
+  dob: MyString
+
+two:
+  reg_number: MyString
+  first_name: MyString
+  last_name: MyString
+  department_id: 1
+  level_id: 1
+  imagePath: MyString
+  father_name: MyString
+  mother_name: MyString
+  telephone: MyString
+  email: MyString
+  dob: MyString

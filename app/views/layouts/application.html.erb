@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= @page_title ? @page_title : 'Welcome'%> | SMMIS</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+
+     <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+      <a class="navbar-brand" href="#">SMMIS</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item <%= params[:controller] == 'students' ? 'active' : '' %>">
+            <%= link_to 'Students', root_path, class:'nav-link' %>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Result</a>
+            <div class="dropdown-menu" aria-labelledby="dropdown01">
+              <%= link_to 'Cat', results_path, class:'dropdown-item' %>
+              <%= link_to 'Semester', results_path, class:'dropdown-item' %>
+              <%= link_to 'Overall', results_path, class:'dropdown-item' %>
+            </div>
+          </li>
+          <li class="nav-item <%= params[:controller] == 'departments' ? 'active' : '' %>">
+            <%= link_to 'Departments', departments_path, class:'nav-link' %>
+          </li>
+          <li class="nav-item <%= params[:controller] == 'modules'? 'active' : '' %>">
+            <%= link_to 'Modules', courses_path, class:'nav-link' %>
+            <!--<li class="nav-item <%= params[:controller] == 'levels'? 'active' : '' %>">
+            <%= link_to 'Levels', levels_path, class:'nav-link' %>
+          </li>-->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Add new</a>
+            <div class="dropdown-menu" aria-labelledby="dropdown01">
+              <%= link_to 'Student', new_student_path, class:'dropdown-item' %>
+              <%= link_to 'Marks', new_result_path, class:'dropdown-item' %>
+              <%= link_to 'Module', new_course_path, class:'dropdown-item' %>
+              <!--<%= link_to 'Level', new_level_path, class:'dropdown-item' %>-->
+              <%= link_to 'Department', new_department_path, class:'dropdown-item' %>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div class="container">
+    	<% if flash[:notice] %>
+    	<div class="alert alert-info"><%= flash[:notice] %></div>
+    	<% end %>
+    	 <%= yield %>
+    </div>
+
+   
+  </body>
+</html>
